@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Key Submission</title>
+</head>
+<body>
+    <h1>Answer Key Submission</h1>
+    <form action="/" method="POST">
+        <label for="answerKeyLink">Answer Key Link:</label>
+        <input type="url" id="answerKeyLink" name="answerKeyLink" required>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="UR">UR</option>
+            <option value="OBC">OBC</option>
+            <option value="EWS">EWS</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if content %}
+        <h2>Extracted Content</h2>
+        <ul>
+            {% for key, value in content.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
